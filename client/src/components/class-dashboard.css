@@ -1,0 +1,327 @@
+/* Styles for dashboard UI (no frameworks). Accessible, responsive, clean layout. */
+:root {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --green: #22c55e;
+  --green-700: #15803d;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#__next {
+  height: 100%;
+}
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  gap: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nav-btn {
+  appearance: none;
+  background: #f3f4f6;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.nav-btn:hover {
+  background: #eef2f7;
+}
+.nav-btn.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Top bar */
+.topbar {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 14px;
+}
+.title {
+  margin: 0;
+  font-size: 20px;
+}
+.search-wrap {
+  display: flex;
+}
+.search-input {
+  width: 100%;
+  max-width: 520px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+}
+.search-input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px #22c55e22;
+}
+
+.icon-btn {
+  background: #f3f4f6;
+  border: 1px solid var(--border);
+  color: #111827;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.datetime {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.datetime .time {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Main grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+}
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.section h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.add-btn {
+  background: #eef6ef;
+  color: var(--green-700);
+  border: 1px solid #b7e2c3;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Classes grid */
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.class-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.class-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  background: #e5e7eb;
+}
+.class-body {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.class-title {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+.view-btn {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.view-btn:hover {
+  background: var(--green-700);
+}
+
+/* Notice board */
+.notice-board {
+  padding-bottom: 6px;
+}
+.notice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.notice-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.notice-text {
+  font-size: 14px;
+}
+.edit-btn {
+  background: #eef2f7;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+/* Floating Add Button */
+.fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: none;
+  background: var(--green);
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+}
+.fab:hover {
+  background: var(--green-700);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .classes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .dashboard {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .nav-btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  .topbar {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "title title"
+      "search cart"
+      "dt dt";
+  }
+  .title {
+    grid-area: title;
+  }
+  .search-wrap {
+    grid-area: search;
+  }
+  .icon-btn {
+    grid-area: cart;
+    justify-self: end;
+  }
+  .datetime {
+    grid-area: dt;
+    align-items: flex-start;
+  }
+  .classes-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+.hero-section {
+  min-height: 100vh;
+  background: #fffdf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 60px;
+}
+
+/* Center Text */
+.hero-center {
+  text-align: center;
+  z-index: 2;
+  position: relative;   /* ensure button stays with text only */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-text .word {
+  display: block;
+}
+
+.teach { font-size: 4rem; }
+.learn { font-size: 4.5rem; margin-left: 20px; }
+.and { font-size: 4rem; margin-left: 40px; }
+.lead { font-size: 4.5rem; margin-left: 20px; }
+
+/* Left Section */
+.hero-left {
+  position: absolute;
+  bottom: 10%;
+  left: 25%;   
+  text-align: center;
+}
+
+.books-image {
+  width: 300px;   
+  border-radius: 20px;
+  position: absolute;
+  bottom : -40%;
+  left: -100%;   
+  /* text-align: center; */
+}
+
+.lets-begin-btn {
+  background: #ff4fbf;
+  color: black;
+  border: none;
+  padding: 14px 36px;
+  margin-top: 20px;   /* yahi se spacing handle hogi */
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.lets-begin-btn:hover {
+  transform: scale(1.05);
+  background: #ff2fa3;
+}
+
+/* Right Section */
+.hero-right {
+  position: absolute;
+  top: 10%;
+  right: 18%;   
+  text-align: center;
+}
+
+.online-learning-image {
+  width: 360px;
+  border-radius: 20px;
+}
+
+.online-tag {
+  margin-top: 12px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Extra floating illustration on right */
+.extra-img {
+  position: absolute;
+  right: 20%;   
+  bottom: 20%;
+  width: 300px;  
+  border-radius: 20px;
+}
+
+/* Floating images */
+.float-img {
+  position: absolute;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.team-collab-img {
+  left: 15%;   /* closer to center */
+  top: 35%;
+  width: 200px;
+}
+
+.bulb-img {
+  right: 56%;
+  bottom: 67%;
+  width: 200px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .books-image, .online-learning-image {
+    width: 240px;
+  }
+  .team-collab-img, .extra-img {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 20px;
+    flex-direction: column;
+  }
+  .hero-left, .hero-right {
+    position: static;
+    margin: 20px auto;
+  }
+  .float-img {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .teach, .learn, .and, .lead {
+    font-size: 2.5rem;
+    margin-left: 0;
+  }
+  .books-image, .online-learning-image {
+    width: 180px;
+  }
+  .lets-begin-btn {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+}

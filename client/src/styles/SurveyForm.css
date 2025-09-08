@@ -1,0 +1,406 @@
+.survey-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+}
+
+.survey-background {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.geometric-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px, 30px 30px;
+}
+
+.geometric-pattern::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+.geometric-pattern::after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: rotate 15s linear infinite reverse;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.survey-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.step-content h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.step-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 30px 0 20px 0;
+}
+
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.option-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.checkbox-option,
+.radio-option {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.checkbox-option:hover,
+.radio-option:hover {
+  border-color: #4ecdc4;
+  background-color: #f8fffe;
+}
+
+.checkbox-option input,
+.radio-option input {
+  display: none;
+}
+
+.checkmark,
+.radio-mark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.checkmark {
+  border-radius: 4px;
+}
+
+.radio-mark {
+  border-radius: 50%;
+}
+
+.checkbox-option input:checked + .checkmark {
+  background-color: #4ecdc4;
+  border-color: #4ecdc4;
+}
+
+.radio-option input:checked + .radio-mark {
+  background-color: #4ecdc4;
+  border-color: #4ecdc4;
+}
+
+.checkmark::after {
+  content: "✓";
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0;
+}
+
+.checkbox-option input:checked + .checkmark::after {
+  opacity: 1;
+}
+
+.radio-mark::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0;
+}
+
+.radio-option input:checked + .radio-mark::after {
+  opacity: 1;
+}
+
+.radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.location-section {
+  margin-top: 30px;
+}
+
+.dropdown-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.dropdown,
+.full-width {
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.dropdown:focus,
+.full-width:focus {
+  outline: none;
+  border-color: #4ecdc4;
+}
+
+.age-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.age-option {
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.age-option:hover {
+  border-color: #4ecdc4;
+  background-color: #f8fffe;
+}
+
+.age-option input {
+  display: none;
+}
+
+.age-option input:checked + span,
+.age-option:has(input:checked) {
+  background-color: #4ecdc4;
+  border-color: #4ecdc4;
+  color: white;
+}
+
+.education-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.education-option {
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.education-option:hover {
+  border-color: #4ecdc4;
+  background-color: #f8fffe;
+}
+
+.education-option input {
+  display: none;
+}
+
+.education-option:has(input:checked) {
+  background-color: #4ecdc4;
+  border-color: #4ecdc4;
+  color: white;
+}
+
+.language-options {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.language-option {
+  padding: 15px 25px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.language-option:hover {
+  border-color: #4ecdc4;
+  background-color: #f8fffe;
+}
+
+.language-option input {
+  display: none;
+}
+
+.language-option:has(input:checked) {
+  background-color: #4ecdc4;
+  border-color: #4ecdc4;
+  color: white;
+}
+
+.language-dropdown {
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.nav-button {
+  flex: 1;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.prev-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.prev-button:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.prev-button:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.next-button {
+  background-color: #4ecdc4;
+  color: white;
+}
+
+.next-button:hover {
+  background-color: #44a08d;
+}
+
+@media (max-width: 768px) {
+  .survey-card {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+
+  .option-row {
+    grid-template-columns: 1fr;
+  }
+
+  .dropdown-row {
+    grid-template-columns: 1fr;
+  }
+
+  .age-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .education-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .language-options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .language-option {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .age-options {
+    grid-template-columns: 1fr;
+  }
+
+  .education-options {
+    grid-template-columns: 1fr;
+  }
+}

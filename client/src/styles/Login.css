@@ -1,0 +1,265 @@
+/* Inter font for clean modern look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --teal:#1b6b5f;           /* brand teal (dark) */
+  --teal-700:#14564c;       /* hover */
+  --ink:#1a1a1a;
+  --muted:#666;
+  --beige-1:#f7f1e6;        /* soft page background */
+  --beige-2:#efe3cf;        /* left gradient deeper */
+  --field:#f7f6f3;          /* input bg */
+  --stroke:#e6e1d9;         /* light border */
+}
+
+/* PAGE */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0; font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif; color:var(--ink);}
+
+.login-page{
+  min-height:100vh;
+  background:
+    linear-gradient(90deg, var(--beige-2) 0%, var(--beige-1) 55%, #ffffff 55%, #ffffff 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px 22px;
+}
+
+/* WHOLE SHELL (two columns) */
+.login-shell{
+  width:100%;
+  max-width:1120px;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.10);
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  overflow:hidden;
+  min-height:600px;
+}
+
+/* LEFT (form) */
+.login-left{
+  padding:42px 46px;
+  display:flex;
+  flex-direction:column;
+}
+
+.brand-title{
+  margin:6px 0 34px 0;
+  font-weight:800;
+  letter-spacing:.2px;
+  font-size:38px;
+  color:var(--teal);
+}
+
+.form-wrap{ max-width:410px; }
+
+.form-heading{
+  font-size:22px;
+  font-weight:700;
+  margin:0 0 22px 0;
+}
+
+.form{ width:100%; }
+
+.form-group{
+  margin-bottom:16px;
+}
+
+.form-group label{
+  display:block;
+  font-size:14px;
+  font-weight:600;
+  color:#3f3f3f;
+  margin-bottom:8px;
+}
+
+.form-group input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid var(--stroke);
+  background:var(--field);
+  font-size:14px;
+  color:#444;
+  outline:none;
+  transition:box-shadow .2s, border-color .2s, background .2s;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+}
+.form-group input::placeholder{ color:#a7a7a7; }
+.form-group input:focus{
+  border-color:var(--teal);
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(27,107,95,.12);
+}
+
+.row-forgot{
+  display:flex;
+  justify-content:flex-start;
+  margin:8px 0 18px 0;
+}
+.link-forgot{
+  font-size:13px;
+  font-weight:600;
+  color:var(--teal);
+  text-decoration:none;
+}
+.link-forgot:hover{ text-decoration:underline; }
+
+.btn-login{
+  width:190px;
+  height:40px;
+  border:none;
+  border-radius:10px;
+  background:var(--teal);
+  color:#fff;
+  font-weight:700;
+  letter-spacing:.4px;
+  cursor:pointer;
+  transition:background .15s, transform .15s, box-shadow .15s;
+  box-shadow: 0 3px 10px rgba(27,107,95,.25);
+}
+.btn-login:hover{
+  background:var(--teal-700);
+  transform: translateY(-1px);
+}
+.btn-login:active{ transform:translateY(0) scale(.99); }
+
+/* divider */
+.divider{
+  position:relative;
+  text-align:center;
+  margin:24px 0 16px 0;
+}
+.divider::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:50%;
+  height:1px;
+  background:#e6e6e6;
+}
+.divider span{
+  position:relative;
+  background:#fff;
+  padding:0 12px;
+  font-size:13px;
+  color:#999;
+}
+
+/* Social buttons (squared with rounded corners) */
+.social-row{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  margin:6px 0 22px 0;
+}
+.social-btn{
+  width:44px; height:44px;
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:transform .15s, box-shadow .15s;
+}
+.social-btn:hover{ 
+  transform:translateY(-2px);
+  box-shadow:0 6px 14px rgba(0,0,0,.08);
+}
+.social-icon{ width:22px; height:22px; display:block; }
+
+/* bottom sign-up */
+.signup-row{
+  font-size:13.5px;
+  color:#666;
+}
+.link-signup{
+  color:var(--teal);
+  font-weight:700;
+  text-decoration:none;
+  margin-left:4px;
+}
+.link-signup:hover{ text-decoration:underline; }
+
+/* RIGHT (illustration + curved white panel) */
+.login-right{
+  position:relative;
+  padding:34px 26px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+}
+
+.illustration-card{
+  position:relative;
+  width: 92%;
+  max-width: 500px;
+  aspect-ratio: 1 / 0.88;          /* similar proportion to screenshot */
+  border-radius:16px;
+  background:linear-gradient(135deg, #6f86e9 0%, #5b73c9 100%);
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+
+.illustration-img{
+  position:absolute;
+  inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  opacity:.96;
+  pointer-events:none;
+}
+
+/* Curved white panel sitting at bottom-right, with soft shadow */
+.curved-panel{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:38%;
+  overflow:hidden;
+  /* create the curved top-left edge */
+  border-top-left-radius: 180px;
+  background:#ffffff;
+  box-shadow: 0 10px 18px rgba(0,0,0,.12);
+  border-top: 1px solid rgba(0,0,0,.04);
+}
+
+/* text inside the curved panel (aligned to the right like the design) */
+.panel-text{
+  position:absolute;
+  right:22px;
+  top:22px;
+  text-align:right;
+  max-width: 310px;
+}
+.panel-text h3{
+  margin:0 0 8px 0;
+  font-weight:800;
+  font-size:20px;
+  line-height:1.25;
+  color:#111;
+}
+.panel-text p{
+  margin:0;
+  color:#444;
+  font-size:14px;
+  line-height:1.55;
+}
+
+/* RESPONSIVE: hide right illustration on small widths, keep flow neat */
+@media (max-width: 960px){
+  .login-shell{
+    grid-template-columns: 1fr;
+    max-width: 640px;
+  }
+  .login-right{ display:none; }
+  .login-left{ padding:42px 34px; }
+  .brand-title{ font-size:34px; }
+}

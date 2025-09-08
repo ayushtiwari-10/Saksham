@@ -1,0 +1,126 @@
+.courses-section {
+  background: linear-gradient(135deg, #fffdf6 0%, #ebf0e0 100%);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #555;
+  max-width: 650px;
+  margin: 0 auto 40px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.courses-scroll {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+.courses-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.course-card {
+  flex: 0 0 280px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-image {
+  height: 180px;
+  overflow: hidden;
+}
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-content {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.course-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.course-btn {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.course-btn:hover {
+  background: #16a34a;
+}
+
+.nav {
+  background: white;
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+.prev { margin-right: -40px; }
+.next { margin-left: -40px; }
+
+.courses-actions {
+  margin-top: 30px;
+}
+.view-all-btn {
+  background: #ff4fbf;
+  color: black;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.view-all-btn:hover {
+  background: #e63fa9;
+}
+
+@media (max-width: 768px) {
+  .course-card { flex: 0 0 240px; }
+  .prev, .next { display: none; }
+}
