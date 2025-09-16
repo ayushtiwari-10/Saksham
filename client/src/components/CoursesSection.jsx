@@ -22,7 +22,7 @@ const CoursesSection = () => {
   }
 
   return (
-    <section className="courses-section section">
+    <section id="top-courses" className="courses-section section">
       <div className="container">
         <h2 className="section-title">Browse Our Top Courses</h2>
         <p className="section-subtitle">

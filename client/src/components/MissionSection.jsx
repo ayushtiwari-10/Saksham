@@ -2,7 +2,7 @@ import "../styles/MissionSection.css";
 
 const MissionSection = () => {
   return (
-    <section className="mission-section section">
+    <section id="mission" className="mission-section section">
       <div className="container">
         <h2 className="section-title">Our Mission Behind This Platform</h2>
 

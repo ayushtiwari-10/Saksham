@@ -117,6 +117,38 @@ export default function HomePage({ onCourseClick }) {
 
   return (
     <main className="homepage">
+      <div className="dashboard-header">
+        <div className="welcome-section">
+          <div className="user-avatar">P</div>
+          <h1>Welcome! <strong>Priyanshi</strong></h1>
+        </div>
+        <div className="role-select">
+          <label htmlFor="role">Role: </label>
+          <select id="role" name="role" defaultValue="student">
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div className="nav-search-container">
+          <nav className="main-nav">
+            <ul>
+              <li className="active">Home</li>
+              <li>My Library</li>
+              <li>Offline</li>
+              <li>About</li>
+              <li>Contact</li>
+            </ul>
+          </nav>
+          <div className="search-bar">
+            <input type="text" placeholder="Search courses..." />
+            <button aria-label="Search">
+              🔍
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="categories-section">
         <div className="categories">
           {categories.map((category, index) => (

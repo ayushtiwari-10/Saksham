@@ -2,13 +2,14 @@
 
 .hero-section {
   min-height: 100vh;
-  background: #fffdf6;
+  background: url('/bg image hero.jpg') no-repeat center center / cover;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 60px;
+  padding: 60px 60px 60px 60px;
+  padding-top: 120px; /* Added padding top to push content down below header */
 }
 
 /* Center Text */
@@ -53,7 +54,7 @@
   width: 300px;   
   border-radius: 20px;
   position: absolute;
-  bottom : -40%;
+  bottom : -30%;  /* moved up from -40% to -30% to come a little down */
   left: -100%;   
   /* text-align: center; */
 }
@@ -87,6 +88,8 @@
 .online-learning-image {
   width: 360px;
   border-radius: 20px;
+  position: relative;
+  top: 20px; /* moved down by 20px */
 }
 
 .online-tag {
@@ -121,8 +124,8 @@
 }
 
 .bulb-img {
-  right: 56%;
-  bottom: 67%;
+  right: 60%;
+  bottom: 55%;
   width: 200px;
 }
 

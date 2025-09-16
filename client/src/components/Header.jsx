@@ -15,37 +15,63 @@ const Header = () => {
     setIsMenuOpen(false)
   }
 
-  if (location.pathname === '/dashboard' || location.pathname === '/class-dashboard') {
+  if (["/dashboard", "/class-dashboard", "/student-dashboard"].includes(location.pathname)) {
     return null
   }
+
+  // Nav links
+  const publicLinks = [
+    { path: "/", label: "Home" },
+    { path: "#top-courses", label: "Top Courses" },
+    { path: "#mission", label: "Mission" },
+    { path: "#faq", label: "FAQ" },
+    { path: "#contact", label: "Contact" },
+  ]
+  const privateLinks = [
+    { path: "/courses", label: "Courses" },
+    { path: "/dashboard", label: "Dashboard" },
+    { path: "/profile", label: "Profile" },
+  ]
+
+  const navLinks = isAuthenticated ? [...publicLinks, ...privateLinks] : publicLinks
 
   return (
     <header className="header">
       <div className="container">
         <div className="header-content">
+          {/* Logo */}
           <Link to="/" className="logo" onClick={() => setIsMenuOpen(false)}>
             <h1>सक्षम</h1>
           </Link>
 
+          {/* Navigation */}
           <nav className={`nav ${isMenuOpen ? "nav-open" : ""}`}>
-            <Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-              Home
-            </Link>
-            {isAuthenticated && (
-              <>
-                <Link to="/courses" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                  Courses
-                </Link>
-                <Link to="/dashboard" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                  Dashboard
-                </Link>
-                <Link to="/profile" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                  Profile
-                </Link>
-              </>
-            )}
+            {navLinks.map((link, index) => (
+              <Link
+                key={link.path || `btn-${index}`}
+                to={link.path || "#"}
+                className={`nav-link ${location.hash === link.path ? "active" : ""}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMenuOpen(false);
+                  if (link.path && link.path.startsWith("#")) {
+                    const element = document.querySelector(link.path);
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                      window.history.replaceState(null, null, link.path);
+                    }
+                  } else {
+                    // For normal navigation
+                    window.location.href = link.path;
+                  }
+                }}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
+          {/* Actions */}
           <div className="header-actions">
             {isAuthenticated ? (
               <div className="user-menu">
@@ -66,9 +92,12 @@ const Header = () => {
             )}
           </div>
 
+          {/* Mobile menu toggle */}
           <button
             className="mobile-menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             ☰
           </button>

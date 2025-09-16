@@ -1,6 +1,6 @@
 .header {
-  background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   position: fixed;
   top: 0;
   left: 0;
@@ -12,93 +12,85 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 0;
   max-width: 1200px;
   margin: 0 auto;
-  padding-left: 10px;
-  padding-right: 20px;
+  padding: 12px 20px;
 }
 
+/* Logo */
 .logo h1 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #333;
-  text-decoration: none;
+  color: #111;
   margin: 0;
 }
 
-/* Nav bar */
-.nav {
+/* Nav */
+nav.nav {
+  all: unset;             /* reset ALL inherited/default styles */
   display: flex;
-  gap: 8px;
   align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  padding: 4px 8px;
-  border-radius: 4px !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  gap: 24px;
 }
 
-/* Nav links */
+
 .nav a {
   text-decoration: none;
-  color: #333;
+  color: rgb(15, 1, 6);
   font-weight: 500;
-  font-size: 0.9rem;
-  padding: 6px 12px;
-  border-radius: 4px !important;
-  display: inline-block;
+  font-size: 0.95rem;
+  padding: 6px 2px;
+  transition: color 0.2s ease;
 }
 
-/* Login / Get Started buttons inside nav */
-.nav .btn {
-  padding: 6px 14px;
-  border: none;
-  border-radius: 4px !important;
-  font-weight: 500;
-  cursor: pointer;
-  font-size: 0.9rem;
+.nav a:hover {
+  color: #eff0f1; /* blue hover like ChronoTask */
 }
 
+/* Actions */
 .header-actions {
   display: flex;
-  gap: 12px;
   align-items: center;
+  gap: 16px;
 }
 
-/* General Button Styles */
 .btn {
-  padding: 6px 14px;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
+  padding: 6px 25px;
+  border-radius: 20px;
+  font-weight: 500;
   font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
 }
 
-.btn-login {
-  background: #f5f5f5;
+/* Login = simple text button */
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #ddd;
   color: #333;
 }
 
-.btn-login:hover {
-  background: #e0e0e0;
+.btn-secondary:hover {
+  background: #f8f8f8;
 }
 
-.btn-started {
+/* Get Started = green CTA */
+.btn-primary {
   background: #28a745;
   color: #fff;
 }
 
-.btn-started:hover {
+.btn-primary:hover {
   background: #218838;
 }
 
+/* Mobile Menu */
 .mobile-menu-btn {
   display: none;
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
@@ -111,20 +103,20 @@
     right: 0;
     background: white;
     flex-direction: column;
-    padding: 15px;
+    gap: 16px;
+    padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 0;
   }
 
   .nav-open {
     display: flex;
   }
 
-  .mobile-menu-btn {
-    display: block;
-  }
-
   .header-actions {
     display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
   }
 }
