@@ -8,6 +8,7 @@ const {
   bookmarkCourse,
   unbookmarkCourse,
   completeSurvey,
+  completePersonalization,
   uploadProfileImage,
 } = require('../controllers/userController');
 const auth = require('../middleware/auth');
@@ -49,5 +50,8 @@ router.delete('/bookmark', auth, roleAuth('student'), unbookmarkCourse);
 
 // Complete survey endpoint
 router.post('/complete-survey', auth, roleAuth('student'), completeSurvey);
+
+// Complete personalization endpoint
+router.post('/complete-personalization', auth, roleAuth('student'), completePersonalization);
 
 module.exports = router;

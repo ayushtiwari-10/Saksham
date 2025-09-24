@@ -119,6 +119,23 @@ export const AuthProvider = ({ children }) => {
     return user?.surveyCompleted || false;
   };
 
+  const hasCompletedPersonalization = () => {
+    return user?.personalizationCompleted || false;
+  };
+
+  const completePersonalization = async () => {
+    try {
+      const response = await api.post('/users/complete-personalization');
+      const updatedUser = response.data.user;
+      setUser(updatedUser);
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      return { success: true };
+    } catch (error) {
+      console.error('Error completing personalization:', error);
+      return { success: false, error: error.response?.data?.message || 'Failed to complete personalization' };
+    }
+  };
+
   const value = {
     user,
     loading,
@@ -128,6 +145,8 @@ export const AuthProvider = ({ children }) => {
     updateProfile,
     completeSurvey,
     hasCompletedSurvey,
+    hasCompletedPersonalization,
+    completePersonalization,
     isAuthenticated: !!user,
     isEducator: user?.role === 'teacher' || user?.role === 'admin',
     isLearner: user?.role === 'student'

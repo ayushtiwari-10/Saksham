@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import api from '../services/api';
@@ -8,8 +8,15 @@ const Personalization = () => {
   const [interests, setInterests] = useState([]);
   const [newInterest, setNewInterest] = useState('');
   const [loading, setLoading] = useState(false);
-  const { user } = useAuth();
+  const { user, hasCompletedPersonalization, completePersonalization } = useAuth();
   const navigate = useNavigate();
+
+  // Redirect if user has already completed personalization
+  useEffect(() => {
+    if (hasCompletedPersonalization()) {
+      navigate('/dashboard');
+    }
+  }, [hasCompletedPersonalization, navigate]);
 
   const predefinedInterests = [
     'Programming', 'Data Science', 'Web Development', 'Mobile Development',
@@ -39,7 +46,12 @@ const Personalization = () => {
 
     setLoading(true);
     try {
+      // Save interests to learner profile
       await api.put('/users/learner-profile', { interests });
+
+      // Mark personalization as completed
+      await completePersonalization();
+
       navigate('/dashboard');
     } catch (error) {
       console.error('Error saving interests:', error);
@@ -47,10 +59,6 @@ const Personalization = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleSkip = () => {
-    navigate('/dashboard');
   };
 
   return (
@@ -127,12 +135,6 @@ const Personalization = () => {
               <div className="btn-row">
                 <button type="submit" className="auth-button" disabled={loading}>
                   {loading ? 'Saving...' : 'Continue to Dashboard'}
-                </button>
-              </div>
-
-              <div className="skip-row">
-                <button type="button" onClick={handleSkip} className="skip-btn">
-                  Skip for now
                 </button>
               </div>
             </form>

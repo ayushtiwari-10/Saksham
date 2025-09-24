@@ -38,6 +38,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    personalizationCompleted: {
+      type: Boolean,
+      default: false,
+    },
     courses: [
       {
         courseId: {

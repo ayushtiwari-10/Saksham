@@ -203,6 +203,27 @@ const completeSurvey = async (req, res) => {
   }
 };
 
+const completePersonalization = async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(
+      req.userId,
+      { $set: { personalizationCompleted: true } },
+      { new: true }
+    ).select('-password');
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json({
+      message: 'Personalization completed successfully',
+      user,
+    });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
 const uploadProfileImage = async (req, res) => {
   try {
     if (!req.file) {
@@ -243,5 +264,6 @@ module.exports = {
   bookmarkCourse,
   unbookmarkCourse,
   completeSurvey,
+  completePersonalization,
   uploadProfileImage,
 };
