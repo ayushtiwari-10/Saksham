@@ -1,0 +1,75 @@
+.admin-layout {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.admin-nav {
+  background: white;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-brand h2 {
+  margin: 0;
+  color: #007bff;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #666;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.nav-link.active {
+  background: #007bff;
+  color: white;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-user span {
+  color: #666;
+  font-size: 14px;
+}
+
+.logout-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background: #c82333;
+}
+
+.admin-main {
+  padding: 20px;
+  min-height: calc(100vh - 60px);
+}
